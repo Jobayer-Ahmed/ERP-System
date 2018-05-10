@@ -1,0 +1,74 @@
+.Login {
+	padding-top: 80px;
+}
+
+.Login .card {
+	border: 1px solid lightgray;
+	width: 600px;
+	margin: auto;
+	margin-bottom: 20px;
+	background-color: #F5F5F6;
+	border-radius: 5px;
+	padding: 0px 50px;
+}
+
+.Login img {
+	width: 100px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+.Login .text div {
+	margin-top: 4px;
+	margin-bottom: 20px;
+}
+
+.Login input[type=text] {
+	width: 406px;
+	height: 30px;
+	border-radius: 30px;
+	border: 2px solid lightgray;
+	padding: 5px 20px;
+	color: #000;
+	font-weight: 900;
+	font-size: 16px;
+	transition: border 1s ease
+}
+
+.Login input[type=text]:focus {
+	border-color: #000;
+}
+
+.Login input[type=text]:last-child {
+	margin-bottom: 20px;
+}
+
+.Login .submit {
+	margin-bottom: 40px;
+}
+
+.Login .submit button {
+	padding: 10px 50px;
+	margin-left: 162px;
+	border-radius: 30px;
+	background-color: #0000FF;
+	font-weight: 900;
+	color: #fff;
+	border-color: transparent;
+}
+
+a, a:focus, a:active, .Login .submit button, .Login .submit button:focus, .Login .submit button:active {
+	outline: 0 !important;
+	outline-color: transparent !important;
+	cursor: pointer;
+}
+
+.a {
+	color: #0000FF;
+}
+
+.Login .small {
+	font-size: 13px !important;
+	font-weight: 300;
+	color: gray;
+}
