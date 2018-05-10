@@ -2,6 +2,8 @@
   "name": "sharif",
   "version": "0.1.0",
   "private": true,
+  "main": "src/main.js",
+  "homepage": "./",
   "dependencies": {
     "bootstrap": "^4.1.1",
     "react": "^16.3.2",
@@ -10,10 +12,18 @@
     "react-scripts": "1.1.4",
     "reactstrap": "^6.0.1"
   },
+  "devDependencies": {
+    "electron": "^2.0.0",
+    "electron-packager": "^12.0.2",
+    "foreman": "^2.0.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "dev": "nf start",
+    "build-app": "electron-packager . ERP-ECOSYSTEM"
   }
 }
