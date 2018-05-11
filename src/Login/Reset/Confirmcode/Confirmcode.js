@@ -46,7 +46,7 @@ class Reset extends Component {
 					</div>
 				</div>
 				<div className={ref.state.newpassword ? "change" : "change hide" }>
-					<Newpass back={ref.back}/>
+					<Newpass/>
 				</div>
 			</div>
 		);

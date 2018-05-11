@@ -10,11 +10,6 @@ class Newpass extends Component {
 			<div className="Newpass">
 				<div className="mail">
 					<div className="card">
-						<div className="goback text-left">
-							<button className="back" onClick={ref.props.back}>
-								<i className="ion-reply"></i>
-							</button>
-						</div>
 						<div className="img">
 							<img src={reset} alt="Login"/>
 						</div>

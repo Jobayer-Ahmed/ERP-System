@@ -34,15 +34,24 @@ class Login extends Component {
 							<div>Enter your credentials bellow</div>
 						</div>
 						<div className="inputs">
-							<input type="text" placeholder="Username"/> <br/><br/>
-							<input type="text" placeholder="Password"/>
+							<div className="usrname">
+								<input type="text" placeholder="Username" value={ref.props.username} onChange={ref.props.cahngeuser}/>
+								<br/>
+								<div className={ref.props.cheakusrname ? 'username_error_label label' : 'username_error_label label hide'}>username doesn't exist</div>
+							</div>
+							<div className="password">
+								<input type="text" placeholder="Password" value={ref.props.password} onChange={ref.props.changepass}/>
+								<br/>
+								<div className={ref.props.cheakpass ? 'password_error_label label' : 'password_error_label label hide'}>incorrect password</div>
+								<br/>
+							</div>
 						</div>
 						<div className="submit">
 							<label>
 								<input type="radio"/>
 								<b>Remember me</b>
 							</label>
-							<button className="sub">LOGIN</button>
+							<button className="sub" onClick={ref.props.login}>LOGIN</button>
 						</div>
 					</div>
 					<br/>

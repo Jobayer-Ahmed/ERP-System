@@ -72,3 +72,14 @@ a, a:focus, a:active, .Login .submit button, .Login .submit button:focus, .Login
 	font-weight: 300;
 	color: gray;
 }
+
+.Login .usrname {
+	margin-bottom: 10px;
+}
+
+.Login .label {
+	text-align: left;
+	margin-top: 5px;
+	margin-left: 97px;
+	color: red;
+}
