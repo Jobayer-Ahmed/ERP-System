@@ -1,11 +1,14 @@
 {
   "name": "sharif",
+  "productName": "ERP",
+  "description": "ERP SYSTEM",
   "version": "0.1.0",
   "private": true,
   "main": "src/main.js",
   "homepage": "./",
   "dependencies": {
     "bootstrap": "^4.1.1",
+    "electron-winstaller": "^2.6.4",
     "react": "^16.3.2",
     "react-autobind": "^1.0.6",
     "react-dom": "^16.3.2",
@@ -24,6 +27,8 @@
     "eject": "react-scripts eject",
     "electron": "electron .",
     "dev": "nf start",
-    "build-app": "electron-packager . ERP-ECOSYSTEM"
+    "build-app": "electron-packager . ERP",
+    "package-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"ERP\"",
+    "create-installer-win": "node src/build.js"
   }
 }
