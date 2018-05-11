@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import Login from './Login/Login';
-import Signup from './Signup/Signup';
 
 class App extends Component {
 	constructor(props) {
@@ -24,8 +23,7 @@ class App extends Component {
 		const ref = this;
 		return (
 			<div className="App">
-				<div className={ref.state.hideusernametopassword ? "login hide" : "login" }><Login login={ref.logintosignup}/></div>
-				<div className={ref.state.hideusernametopassword ? "signup" : "signup hide" }><Signup login={ref.logintosignup}/></div>
+				<Login login={ref.logintosignup}/>
 			</div>
 		);
 	}

@@ -45,9 +45,6 @@ class Login extends Component {
 							<button className="sub">LOGIN</button>
 						</div>
 					</div>
-					<div className="forgot">
-						<b>Don't have any account? <a className="a" onClick={ref.props.login}><u>Create new account</u></a></b>
-					</div>
 					<br/>
 					<div className="forgot small">
 						<b>Forgot password? <a className="a" onClick={() => ref.setState({recoverpass: !ref.state.recoverpass})}><u>Reset password</u></a></b>

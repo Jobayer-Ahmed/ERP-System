@@ -9,6 +9,14 @@ class Reset extends Component {
 		ref.state = {
 			newpassword: false,
 		}
+		ref.back = ref.back.bind(ref);
+	}
+
+	back() {
+		const ref = this;
+		ref.setState({
+			newpassword: !ref.state.newpassword,
+		})
 	}
 
 	render() {
@@ -33,12 +41,12 @@ class Reset extends Component {
 							<input type="text" placeholder="Confirmation code"/>
 						</div>
 						<div className="submit text-center no-gutter">
-							<button className="big" onClick={ref.props.back}>Varify code</button>
+							<button className="big" onClick={() => ref.setState({newpassword: !ref.state.newpassword})}>Varify code</button>
 						</div>
 					</div>
 				</div>
 				<div className={ref.state.newpassword ? "change" : "change hide" }>
-					<Newpass />
+					<Newpass back={ref.back}/>
 				</div>
 			</div>
 		);
