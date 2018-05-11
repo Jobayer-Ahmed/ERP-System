@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/ERP-ECOSYSTEM-linux-x64
 
 # testing
 /coverage
