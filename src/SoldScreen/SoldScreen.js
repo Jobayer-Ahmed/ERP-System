@@ -2,25 +2,42 @@ import React, { Component } from "react";
 import axios from "axios";
 import BootstrapTable from "react-bootstrap-table-next";
 import paginationFactory from "react-bootstrap-table2-paginator";
-import "./Mainscreen.css";
-class Mainscreen extends Component {
+class SoldScreen extends Component {
   constructor(props) {
     super(props);
+    this.state ={
+      soldProd: {},
+      warning: '',
+      error: ''
+    }
+  }
+  componentWillMount() {
+    axios
+      .get("https://great-airport.glitch.me/all-sold-product")
+      .then(res => {
+        if (res.data.message) {
+          this.setState({ warning: res.data.message });
+        } else {
+          this.setState({ soldProd: res.data });
+        }
+      })
+      .catch(err => {
+        this.setState({ error: err.response.data });
+      });
   }
   render() {
-    const { allProd } = this.props;
+    const { soldProd } = this.state;
     let prodObj = {};
     let prodArr = [];
-    for (let i = 0; i < allProd.length; i++) {
+    for (let i = 0; i < soldProd.length; i++) {
       prodObj = {
         id: i,
-        productId:allProd[i].prodId,
-        name: allProd[i].prodName,
-        category: allProd[i].categoryName,
-        weight: allProd[i].weight,
-        uploadDate: allProd[i].buyDate.split('T')[0],
-        qnty: allProd[i].qnty,
-        price: allProd[i].price,
+        prodId:soldProd[i].prodId,
+        prodName: soldProd[i].prodName,
+        categoryName: soldProd[i].categoryName,
+        sellDate: soldProd[i].sellDate.split('T')[0],
+        sellQnty: soldProd[i].sellQnty,
+        totalPrice: soldProd[i].totalPrice,
 
       };
       prodArr.push(prodObj)
@@ -58,31 +75,27 @@ class Mainscreen extends Component {
         text: "Serial no."
       },
       {
-        dataField: "productId",
+        dataField: "prodId",
         text: "Product Id"
       },
       {
-        dataField: "name",
+        dataField: "prodName",
         text: "Product Name"
       },
       {
-        dataField: "category",
+        dataField: "categoryName",
         text: "Category"
       },
       {
-        dataField: "weight",
-        text: "Weight"
-      },
-      {
-        dataField: "uploadDate",
+        dataField: "sellDate",
         text: "Date"
       },
       {
-        dataField: "qnty",
+        dataField: "sellQnty",
         text: "Quantity"
       },
       {
-        dataField: "price",
+        dataField: "totalPrice",
         text: "Price"
       }
     ];
@@ -103,4 +116,4 @@ class Mainscreen extends Component {
   }
 }
 
-export default Mainscreen;
+export default SoldScreen;

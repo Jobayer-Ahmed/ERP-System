@@ -32,6 +32,8 @@ class Login extends Component {
 						<div className="text">
 							<b>Login</b> <br/>
 							<div>Enter your credentials bellow</div>
+							<small style={{color: 'red'}}>{this.props.error}</small>
+							<br/>
 						</div>
 						<div className="inputs">
 							<div className="usrname">
@@ -40,7 +42,7 @@ class Login extends Component {
 								<div className={ref.props.cheakusrname ? 'username_error_label label' : 'username_error_label label hide'}>username doesn't exist</div>
 							</div>
 							<div className="password">
-								<input type="text" placeholder="Password" value={ref.props.password} onChange={ref.props.changepass}/>
+								<input type="password" placeholder="Password" value={ref.props.password} onChange={ref.props.changepass}/>
 								<br/>
 								<div className={ref.props.cheakpass ? 'password_error_label label' : 'password_error_label label hide'}>incorrect password</div>
 								<br/>
@@ -48,7 +50,7 @@ class Login extends Component {
 						</div>
 						<div className="submit">
 							<label>
-								<input type="radio"/>
+								<input type="radio"/>{" "}
 								<b>Remember me</b>
 							</label>
 							<button className="sub" onClick={ref.props.login}>LOGIN</button>

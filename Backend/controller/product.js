@@ -22,10 +22,10 @@ const addProduct = async (req, res) => {
       buyDate,
       user: req.user
     };
-    const allProd = await Product.find({});
     const prodTosave = await new Product(prodObj);
-    const newProd = await prodTosave.save();
-    return res.json(newProd);
+    await prodTosave.save();
+    const allProd = await Product.find({});
+    return res.json(allProd);
   } catch (error) {
     return res.json(error);
   }
@@ -35,7 +35,7 @@ const sell_Product = async (req, res) => {
     const { categoryName, prodName, prodId, sellQnty, price } = await req.body;
     const prod = await Product.findOne({ prodId });
     if (prod) {
-      if (prod.qnty < 1) {
+      if (prod.qnty === 0) {
         await prod.remove();
         return res.json({ msg: "Enough product is not in store" });
       }
@@ -52,7 +52,14 @@ const sell_Product = async (req, res) => {
         prod.qnty = prod.qnty - sellQnty;
         await prod.save();
         const soldProd = await sellProd.save();
-        return res.json(soldProd);
+        const allProd = await Product.find({});
+        for (let i = 0; i < allProd.length; i++) {
+          console.log(allProd[i].qnty === 0)
+          if (allProd[i].qnty === 0) {
+            await allProd[i].remove()
+          }
+        }
+        return res.json({ soldProd, allProd });
       }
     } else {
       return res.json({ msg: "Enough product is not in store" });
@@ -64,10 +71,23 @@ const sell_Product = async (req, res) => {
 const getAllProd = async (req, res) => {
   try {
     const allProd = await Product.find({});
-    res.json(allProd);
+    for (let i = 0; i < allProd.length; i++) {
+      if (allProd[i].qnty === 0) {
+        await allProd[i].remove();
+      }
+    }
+    return res.json(allProd);
   } catch (error) {
     res.json(error);
   }
 };
 
-module.exports = { addProduct, sell_Product, getAllProd };
+const soldProduct = async (req, res) => {
+  try {
+    const allProd = await sellProduct.find({});
+    return res.json(allProd);
+  } catch (error) {
+    res.json(error);
+  }
+};
+module.exports = { addProduct, sell_Product, getAllProd, soldProduct };

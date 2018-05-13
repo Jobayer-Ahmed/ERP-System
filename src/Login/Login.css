@@ -23,7 +23,7 @@
 	margin-bottom: 20px;
 }
 
-.Login input[type=text] {
+.Login input[type=text],.Login input[type=password] {
 	width: 406px;
 	height: 30px;
 	border-radius: 30px;
@@ -35,11 +35,11 @@
 	transition: border 1s ease
 }
 
-.Login input[type=text]:focus {
+.Login input[type=text]:focus, .Login input[type=password]:focus {
 	border-color: #000;
 }
 
-.Login input[type=text]:last-child {
+.Login input[type=password]:last-child {
 	margin-bottom: 20px;
 }
 
